@@ -1,0 +1,79 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BooksManager.Views.BooksView">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+    <ListBox ItemsSource="{Binding BookList}" SelectedItem="{Binding Book}" Margin="20" Background="Gray" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="11" Grid.RowSpan="12">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel>
+            <TextBlock>
+              <Run Text="Author:" FontWeight="Bold"/>
+              <Run Text="{Binding Author}"/>
+            </TextBlock>
+            <TextBlock>
+              <Run Text="Title:" FontWeight="Bold"/>
+              <Run Text="{Binding Title}"/>
+            </TextBlock>
+            <TextBlock>
+              <Run Text="Category:" FontWeight="Bold"/>
+              <Run Text="{Binding BookCategory.Name}"/>
+            </TextBlock>
+            <TextBlock>
+              <Run Text="Created:" FontWeight="Bold"/>
+              <Run Text="{Binding CreatedDate}" FontStyle="Italic"/>
+            </TextBlock>
+            <TextBlock>
+              <Run Text="Modified:" FontWeight="Bold"/>
+              <Run Text="{Binding ModifiedDate}" FontStyle="Italic"/>
+            </TextBlock>
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+
+    <Label Grid.Row="1" Grid.Column="11" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Books" FontSize="18" FontWeight="Bold"></Label>
+    <Button Grid.Row="2" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Create" Command="{Binding CreateBookCommand}" Background="Green"></Button>
+    <Button Grid.Row="3" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Edit" Command="{Binding UpdateBookCommand}" Background="DarkBlue"></Button>
+    <Button Grid.Row="4" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Remove" Command="{Binding RemoveBookCommand}" Background="Red"></Button>
+    
+    
+    <Button Grid.Row="5" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding SortByCommand}" Background="Blue" Grid.RowSpan="2" Height="50" FontSize="10">
+      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding SortByButtonText}" TextWrapping="Wrap" />
+    </Button>
+
+    <Button Grid.Row="9" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Categories" Command="{Binding ShowBookCategoriesViewCommand}"></Button>
+    <Button Grid.Row="10" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Checkouts" Command="{Binding ShowCheckoutsViewCommand}"></Button>
+  </Grid>
+</UserControl>
