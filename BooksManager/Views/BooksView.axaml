@@ -73,6 +73,7 @@
       <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding SortByButtonText}" TextWrapping="Wrap" />
     </Button>
 
+    <Button Grid.Row="8" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Calculator" Command="{Binding ShowCalculatorViewCommand}"></Button>
     <Button Grid.Row="9" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Categories" Command="{Binding ShowBookCategoriesViewCommand}"></Button>
     <Button Grid.Row="10" Grid.Column="11" Width="100" HorizontalContentAlignment="Center" Content="Checkouts" Command="{Binding ShowCheckoutsViewCommand}"></Button>
   </Grid>

@@ -1,5 +1,6 @@
 ﻿using BooksManager.Model;
 using BooksManager.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace BooksManager.Service
 
             var result = _appDbContext.BookCategories.Add(bookCategory);
             await _appDbContext.SaveChangesAsync();
-            return result;
+            return result.Entity;
         }
 
         public async Task<bool> RemoveBookCategory(int id)
@@ -51,7 +52,7 @@ namespace BooksManager.Service
         public async Task<bool> UpdateBookCategory(BookCategory bookCategory)
         {
             var result = _appDbContext.BookCategories.Add(bookCategory);
-            _appDbContext.Entry(bookCategory).State = System.Data.Entity.EntityState.Modified;
+            _appDbContext.Entry(bookCategory).State = EntityState.Modified;
             await _appDbContext.SaveChangesAsync();
             return result != null;
         }

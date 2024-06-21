@@ -1,10 +1,6 @@
 ﻿using BooksManager.Model;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Threading.Tasks;
 
 namespace BooksManager.Persistence
@@ -17,6 +13,6 @@ namespace BooksManager.Persistence
         DbSet<BookCategory> BookCategories { get; set; }
         DbSet<Checkout> Checkouts { get; set; }
         Task<int> SaveChangesAsync();
-        DbEntityEntry Entry(object entity);
+        EntityEntry Entry(object entity);
     }
 }

@@ -42,7 +42,7 @@ namespace BooksManager.Service
             };
             var result = _appDbContext.Users.Add(newUser);
             await _appDbContext.SaveChangesAsync();
-            return result;
+            return result.Entity;
         }
 
         public async Task<bool> RemoveUser(int id)

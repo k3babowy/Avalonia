@@ -1,19 +1,23 @@
 ﻿using BooksManager.Model;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Threading.Tasks;
 
 namespace BooksManager.Persistence
 {
     public class AppDbContext : DbContext, IAppDbContext
     {
-        public AppDbContext(string connectionString) : base(connectionString)
+        public AppDbContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<AppDbContext>());
+            Database.EnsureCreated();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlite("Data Source=booksManager.db");
+            }
         }
 
         public DbSet<User> Users { get; set; }
@@ -26,7 +30,7 @@ namespace BooksManager.Persistence
             return base.SaveChangesAsync();
         }
 
-        public DbEntityEntry Entry(object entity)
+        public EntityEntry Entry(object entity)
         {
             return base.Entry(entity);
         }

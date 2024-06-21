@@ -35,7 +35,7 @@ namespace BooksManager.Service
 
             var result = _appDbContext.Books.Add(newBook);
             await _appDbContext.SaveChangesAsync();
-            return result;
+            return result.Entity;
         }
 
         public async Task<bool> RemoveBook(int id)
@@ -48,7 +48,7 @@ namespace BooksManager.Service
         public async Task<bool> UpdateBook(Book book)
         {
             var result = _appDbContext.Books.Add(book);
-            _appDbContext.Entry(book).State = System.Data.Entity.EntityState.Modified;
+            _appDbContext.Entry(book).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _appDbContext.SaveChangesAsync();
             return result != null;
         }

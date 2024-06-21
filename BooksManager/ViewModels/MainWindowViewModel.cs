@@ -29,8 +29,7 @@ namespace BooksManager.ViewModels
 
         public MainWindowViewModel()
         {
-            string connectionString = "Data Source=DESKTOP-R3UOQMT\\SQLEXPRESS;Initial Catalog=booksmanager;Integrated Security=True";
-            _appDbContext = new AppDbContext(connectionString);
+            _appDbContext = new AppDbContext();
             CurrentView = new LoginViewModel(this, _appDbContext);
         }
 
@@ -76,6 +75,11 @@ namespace BooksManager.ViewModels
             if (bookCategory == null || bookCategory?.Id == null) return;
 
             CurrentView = new UpdateBookCategoryViewModel(this, _appDbContext, bookCategory);
+        }
+
+        public void ShowCalculatorView()
+        {
+            CurrentView = new CalculatorViewModel();
         }
 
     }

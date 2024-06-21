@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace BooksManager.Service
 {
@@ -38,7 +39,7 @@ namespace BooksManager.Service
 
             var result = _appDbContext.Checkouts.Add(newCheckout);
             await _appDbContext.SaveChangesAsync();
-            return result;
+            return result.Entity;
         }
 
         public async Task<bool> RemoveCheckout(int id)
@@ -52,7 +53,7 @@ namespace BooksManager.Service
         public async Task<bool> UpdateCheckout(Checkout checkout)
         {
             var result = _appDbContext.Checkouts.Add(checkout);
-            _appDbContext.Entry(checkout).State = System.Data.Entity.EntityState.Modified;
+            _appDbContext.Entry(checkout).State = EntityState.Modified;
             await _appDbContext.SaveChangesAsync();
             return result != null;
         }
