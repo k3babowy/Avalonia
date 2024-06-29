@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BooksManager.Views.SnakeView"
+             Width="800" Height="450">
+
+  <Panel>
+    <Border BorderBrush="Blue" BorderThickness="2">
+      <Canvas x:Name="GameCanvas" Background="Black" Focusable="True" KeyDown="OnKeyDown"/>
+    </Border>
+
+    <TextBlock x:Name="GameOverText" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Foreground="Red" FontSize="24" FontWeight="Bold" IsVisible="False">
+      Game Over! Press Escape to Restart.
+    </TextBlock>
+
+    <TextBlock x:Name="ScoreText" HorizontalAlignment="Left" VerticalAlignment="Top"
+              Margin="10" Foreground="White" FontSize="18"/>
+  </Panel>
+
+</UserControl>

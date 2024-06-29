@@ -26,6 +26,9 @@
     <Compile Update="Views\BooksCategoryView.axaml.cs">
       <DependentUpon>BooksCategoryView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\SnakeView.axaml.cs">
+      <DependentUpon>SnakeView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CalculatorView.axaml.cs">
       <DependentUpon>CalculatorView.axaml</DependentUpon>
     </Compile>

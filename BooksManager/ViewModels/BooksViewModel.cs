@@ -47,6 +47,7 @@ namespace BooksManager.ViewModels
         public ReactiveCommand<Unit, Unit> ShowCheckoutsViewCommand { get; }
         public ReactiveCommand<Unit, Unit> ShowBookCategoriesViewCommand { get; }
         public ReactiveCommand<Unit, Unit> ShowCalculatorViewCommand { get; }
+        public ReactiveCommand<Unit, Unit> ShowSnakeViewCommand { get; }
 
         public BooksViewModel(MainWindowViewModel mainWindowViewModel, IAppDbContext appDbContext)
         {
@@ -59,6 +60,7 @@ namespace BooksManager.ViewModels
             ShowCheckoutsViewCommand = ReactiveCommand.Create(() => _mainWindowViewModel.ShowCheckoutsView());
             ShowBookCategoriesViewCommand = ReactiveCommand.Create(() => _mainWindowViewModel.ShowBookCategoriesView());
             ShowCalculatorViewCommand = ReactiveCommand.Create(() => _mainWindowViewModel.ShowCalculatorView());
+            ShowSnakeViewCommand = ReactiveCommand.Create(() => _mainWindowViewModel.ShowSnakeView());
 
             _bookService = new BookService(appDbContext);
             _bookList = new ObservableCollection<Book>(_bookService.GetBooks());

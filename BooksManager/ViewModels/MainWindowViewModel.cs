@@ -82,5 +82,10 @@ namespace BooksManager.ViewModels
             CurrentView = new CalculatorViewModel();
         }
 
+        public void ShowSnakeView()
+        {
+            CurrentView = new SnakeViewModel();
+        }
+
     }
 }
